@@ -9,6 +9,8 @@ django-on-heroku = "*"
 django = "*"
 gunicorn = "*"
 django-environ = "*"
+django-extensions = "*"
+django-registration-redux = "*"
 
 [dev-packages]
 
