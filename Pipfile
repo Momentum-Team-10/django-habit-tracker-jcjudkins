@@ -8,6 +8,7 @@ psycopg2-binary = "*"
 django-on-heroku = "*"
 django = "*"
 gunicorn = "*"
+django-environ = "*"
 
 [dev-packages]
 
