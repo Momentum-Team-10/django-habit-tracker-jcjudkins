@@ -140,12 +140,12 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# AUTH_USER_MODEL = "config.User"
+AUTH_USER_MODEL = "habittracker.User"
 
 django_on_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
 
-AUTH_USER_MODEL = 'habittracker.User'
+# AUTH_USER_MODEL = 'habittracker.User'
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = "/"
