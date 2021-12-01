@@ -149,5 +149,4 @@ del DATABASES['default']['OPTIONS']['sslmode']
 AUTH_USER_MODEL = 'habittracker.CustomUser'
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
-REGISTRATION_FORM = "habittracker.forms.CustomRegistrationForm"
 LOGIN_REDIRECT_URL = "/"

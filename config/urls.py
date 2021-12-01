@@ -21,7 +21,7 @@ from django.urls import include, path
 from habittracker import views as habit_views
 
 urlpatterns = [
-    path('', habit_views.homepage, name='homepage'),
+    # path('', habit_views.homepage, name='homepage'),
     path('accounts/', include('registration.backends.simple.urls')),
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
