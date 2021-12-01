@@ -18,11 +18,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 import debug_toolbar
 from django.urls import include, path
-from habittracker import views as habit_views
+from habittracker import views
 
 urlpatterns = [
-    # path('', habit_views.homepage, name='homepage'),
-    path('accounts/', include('registration.backends.simple.urls')),
     path('admin/', admin.site.urls),
+    path('', views.index, name='index'),
+    path('accounts/', include('registration.backends.simple.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
 ]
