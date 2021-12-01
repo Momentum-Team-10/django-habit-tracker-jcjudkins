@@ -21,6 +21,8 @@ env = environ.Env(
 # reads the .env file
 env.read_env()
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = env('DEBUG')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,10 +32,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0(4ajkdhn*xvm1=j@xa-s#2@2cr8%d-u5!$ir@=sr41gj62e^7'
+SECRET_KEY = env('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+
 
 ALLOWED_HOSTS = []
 
@@ -140,10 +141,13 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTH_USER_MODEL = "config.User"
+
 django_on_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
 
 AUTH_USER_MODEL = 'habittracker.CustomUser'
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
+REGISTRATION_FORM = "habittracker.forms.CustomRegistrationForm"
 LOGIN_REDIRECT_URL = "/"
