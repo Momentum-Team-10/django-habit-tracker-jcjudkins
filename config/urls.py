@@ -21,10 +21,10 @@ from django.urls import include, path
 from habittracker import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('accounts/', include('registration.backends.simple.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('registration.backends.simple.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
+    path('', views.index, name='index'),
     path('habittracker/<int:pk>/add', views.add_habit, name='add_habit'),
     path('habittracker/<int:pk>/edit', views.add_habit, name='edit_habit'),
 ]
