@@ -1,4 +1,9 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User
+from .models import User, Habit, DailyRecord
+
+admin.site.register(User)
+admin.site.register(Habit)
+admin.site.register(DailyRecord)
+
 
