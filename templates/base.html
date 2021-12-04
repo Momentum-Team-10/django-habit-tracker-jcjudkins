@@ -1,16 +1,48 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        {% block title %}<title>Habit Tracker!</title>{% endblock %}
-      </head>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% block sidebar %}<!-- insert default navigation text for every page -->{% endblock %}
-    {% block content %}<!-- default content text (typically empty) -->{% endblock %}
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block meta %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"
+    />
+  </head>
+  <body class="sans-serif bg-near-white">
+    <header class="pa3 bg-gold black">
+      <h1 class="ma0"><a class="black no-underline" href="{% url 'index' %}">My Habbits</a></h1>
+      <div class="flex justify-between">
+        {% if user.is_authenticated %}
+        <div class="mr2 b">
+          Hello, {{ user.username }}!
+          <a href="{% url 'auth_logout' %}">Log Out</a>
+        </div>
+      <div class="mr2 b">
+        
+      </div>
+        {% endif %}
+    </div>
+    </header>
+    <main class="pa3">
+    {% if messages %}
+      <div class="messages ba br2 b--silver pa2">
+      {% for message in messages %}
+        <p
+          {% if message.tags == 'success' %}
+          class="bg-washed-green"
+          {% elif message.tags == 'error' %}
+          class="bg-washed-red"
+          {% endif %}>
+            {{ message }}
+          </p>
+      {% endfor %}
+      </div>
+    {% endif %}
+      <div class="container">{% block content %} {% endblock content %}</div>
+    </main>
+    {% block js %}{% endblock js%}
+  </body>
 </html>

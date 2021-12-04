@@ -25,6 +25,7 @@ urlpatterns = [
     path('accounts/', include('registration.backends.simple.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
     path('', views.index, name='index'),
-    path('habittracker/<int:pk>/add', views.add_habit, name='add_habit'),
+    path('habittracker/add', views.add_habit, name='add_habit'),
     path('habittracker/<int:pk>/edit', views.add_habit, name='edit_habit'),
+    path('habit_view/<int:pk>', views.habit_detail, name='habit_detail'),
 ]

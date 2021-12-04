@@ -1,8 +1,21 @@
-{% extends "templates/base.html" %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Recipes{% endblock title %}
 
 {% block content %}
-  <h1>Placeholder for subtitle</h1>
-  <p> <em>Mozilla Developer Network</em>!</p>
-{% endblock %}
+  <div>
+    <a href="{% url 'add_habit' %}">Add a New Habit</a>
+  </div>
+  <ul id="habit-list">
+  {% for habit in habits %}
+    <li>
+      <div>
+        <h2><a href={% url 'habit_detail' pk=habit.pk %}> {{ habit.name }}</a></h2>
+      </div>
+    
+    </li>
+  {% endfor %}
+{% endblock content %}
 
-<!-- <a href="{% url 'index' %}">Home</a>. -->
+

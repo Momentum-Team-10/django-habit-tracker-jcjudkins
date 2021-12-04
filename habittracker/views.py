@@ -17,7 +17,7 @@ def index(request):
         return redirect("auth_login")
     else:
         habits = Habit.objects.all()
-        return render(request, 'core/index.html', {'habits': Habit})
+        return render(request, 'core/index.html', {'habits': habits})
 
 
 
@@ -29,7 +29,7 @@ def add_habit(request):
             habit = form.save(commit=False)
             habit.author = request.user
             habit.save()
-            return redirect('index', pk=habit.pk)
+            return redirect('habit_detail', pk=habit.pk)
     else:
         form = HabitForm()
 
@@ -50,3 +50,11 @@ def edit_habit(request, pk):
     return render(request, 'core/edit_habit.html', {'form': form})
 
 
+def habit_detail(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+    return render(
+        request,
+        'core/habit_detail.html',
+        {'habit': habit}
+)
+    
