@@ -19,6 +19,7 @@ from django.contrib import admin
 import debug_toolbar
 from django.urls import include, path
 from habittracker import views
+from api import views as api_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +29,7 @@ urlpatterns = [
     path('habittracker/add', views.add_habit, name='add_habit'),
     path('habittracker/<int:pk>/edit', views.add_habit, name='edit_habit'),
     path('habit_view/<int:pk>', views.habit_detail, name='habit_detail'),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/habits', api_views.HabitListView.as_view(), name='habit_list'),
+    path('api/habits/<int:pk>/', api_views.HabitDetailView.as_view(), name='habit_detail')
 ]
