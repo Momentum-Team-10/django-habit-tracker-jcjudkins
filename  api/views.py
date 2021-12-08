@@ -7,9 +7,6 @@ from .serializers import HabitSerializer
 
 
 class HabitListView(ListAPIView):
-    """
-    List all habits
-    """
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
 
