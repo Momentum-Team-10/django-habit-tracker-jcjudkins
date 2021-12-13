@@ -4,7 +4,7 @@ from habittracker.models import DailyRecord, Habit, User
 
 # need to import fields from habit model
 class HabitSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username')
+    # owner = serializers.ReadOnlyField(source='owner.username')
     class Meta:
         model = Habit
         fields = (
@@ -15,7 +15,7 @@ class HabitSerializer(serializers.ModelSerializer):
         )
 
 class RecordSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username')
+    # owner = serializers.ReadOnlyField(source='owner.username')
     class Meta:
         model = DailyRecord
         fields = (
@@ -26,7 +26,7 @@ class RecordSerializer(serializers.ModelSerializer):
 
 
 # Including this class. Not sure if this will be used
-class UserSerializer(serializers.HyperLinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (

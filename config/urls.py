@@ -23,6 +23,11 @@ from api import views as api_views
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 
+# guide shows to use this router, but not sure how it works
+# router = routers.DefaultRouter()
+# router.register(r'users', views.UserViewSet)
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),

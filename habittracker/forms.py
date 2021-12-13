@@ -21,3 +21,6 @@ class DailyRecordForm(forms.ModelForm):
             "date",
             "habit_id",
         ]
+
+
+# may need a user form

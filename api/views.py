@@ -49,13 +49,13 @@ class UserViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class RecordListView(viewsets.ListAPIView):
+class RecordListView(ListAPIView):
     queryset = DailyRecord.objects.all()
     serializer_class = RecordSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 
-class RecordDetailView(viewsets.RetrieveAPIView):
+class RecordDetailView(RetrieveAPIView):
     queryset = DailyRecord.objects.all()
     serializer_class = RecordSerializer
     permission_classes = [permissions.IsAuthenticated]
