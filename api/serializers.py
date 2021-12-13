@@ -4,6 +4,7 @@ from habittracker.models import DailyRecord, Habit
 
 # need to import fields from habit model
 class HabitSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.username')
     class Meta:
         model = Habit
         fields = (
@@ -14,6 +15,7 @@ class HabitSerializer(serializers.ModelSerializer):
         )
 
 class RecordSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.username')
     class Meta:
         model = DailyRecord
         fields = (
