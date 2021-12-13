@@ -15,6 +15,7 @@ django-debug-toolbar = "*"
 djangorestframework = "*"
 markdown = "*"
 api = "*"
+djoser = "*"
 
 [dev-packages]
 

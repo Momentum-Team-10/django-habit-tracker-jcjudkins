@@ -53,9 +53,11 @@ INSTALLED_APPS = [
     'django_extensions',
     'debug_toolbar',
     'rest_framework',
+    'rest_framework.authtoken',
     # own apps
     'habittracker',
     'api',
+    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -161,5 +163,7 @@ LOGIN_REDIRECT_URL = "/"
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+        ],
+        'DEFAULT_AUTHENTICATION_CLASSES': 
+        ['rest_framework.authentication.TokenAuthentication'],
 }
