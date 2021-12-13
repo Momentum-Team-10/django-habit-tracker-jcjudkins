@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from habittracker.models import DailyRecord, Habit
+from habittracker.models import DailyRecord, Habit, User
 
 
 # need to import fields from habit model
@@ -23,3 +23,15 @@ class RecordSerializer(serializers.ModelSerializer):
             'quantity',
             'date',
         )
+
+
+# Including this class. Not sure if this will be used
+class UserSerializer(serializers.HyperLinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = (
+            'url',
+            'username',
+            'email',
+            'groups',
+            )

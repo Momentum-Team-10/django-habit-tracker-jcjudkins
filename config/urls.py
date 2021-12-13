@@ -20,6 +20,8 @@ import debug_toolbar
 from django.urls import include, path
 from habittracker import views
 from api import views as api_views
+from django.contrib.auth.models import User
+from rest_framework import routers, serializers, viewsets
 
 urlpatterns = [
     path('admin/', admin.site.urls),
