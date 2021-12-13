@@ -35,3 +35,4 @@ class DailyRecord(models.Model):
 
     def __str__(self):
         return f'<DailyRecord habit={self.habit_id}>'  
+
